@@ -1,12 +1,15 @@
 import sqlite3
+import re
 
 async def add(item):
     connection = sqlite3.connect('sql.db')
-    cursor = connect.cursor()
+    cursor = connection.cursor()
+    #cursor = connect.cursor()
     m = []
     m.append(item)
     cursor.execute('INSERT INTO shop VALUES(?)', m)
-    connect.commit()
+    connection.commit()
+    #connect.commit()
     cursor.close()
 
 async def buy():
@@ -32,5 +35,5 @@ async def buy():
         q = i + '\n'
         c.append(q)
 
-    v = '\n'.join()
+    v = '\n'.join(c)
     return v
